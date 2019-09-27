@@ -8,9 +8,21 @@ function formatQueryParams(params) {
     .map(key => `${key}=${params[key]}`)
   return queryItems.join('&');
 }
+function displayResults(responseJson) {
+    $('.results').empty();
+    for (let i = 0; i < responseJson.data.length; i++){
+        console.log(responseJson);
+        $('.results').append(
+        `<li><h3>${responseJson.data[i].fullName}</h3>
+        <h4>${responseJson.data[i].states}</h4>
+        <p>${responseJson.data[i].description}</p>
+        <p>${responseJson.data[i].url}</p>
+        </li>`
+      )};
+  
+  };
 function getParksList(stateName, maxResults) {
     const params = {
-        parkCode: 'acad,dena',
         api_key: apiKey,
         stateCode: stateName,
         limit: maxResults
@@ -25,7 +37,7 @@ function getParksList(stateName, maxResults) {
           }
           throw new Error(response.statusText);
         })
-        .then(responseJson => console.log(JSON.stringify(responseJson)))
+        .then(response => displayResults(response))
         .catch(err => {
           $('.results').text(`Something went wrong: ${err.message}`);
         });
