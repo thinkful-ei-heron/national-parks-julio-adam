@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Park Finder</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class='container'>
+        <h1>Park Finder 9000</h1>
+        <form class='park-finder'>
+            <label for="state-park">State Abbreviation</label>
+            <input type="text" name="state-park" class='park-state' placeholder='ex, ME' required>
+            <label for="max-results">Amount of Results</label>
+            <input type="number" name='max-results' class='results-max' value='10' required>
+            <button type="submit" class='submit-button'>Search!</button>
+        </form>
+        <section class='container2'>
+            <ul class='results'>
+            </ul>
+        </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
